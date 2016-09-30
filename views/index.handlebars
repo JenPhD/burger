@@ -1,15 +1,16 @@
-  <div class="jumbotron">
-    <div class="container">
-      <div id="header" class="col-sm-12">
-        <h1>Eat Da Burger!</h1>
-          <h3>(not to be confused with Burger Time)</h3>
-            <img src="assets/img/burgertime.jpg"></img>
-      </div>
+<div class="jumbotron"> 
+  <div class="container">  
+    <div id="header" class="col-sm-12">
+      <h1>Eat Da Burger!</h1>
+        <h3>(not to be confused with Burger Time)</h3>
+          <img src="assets/img/burgertime.jpg"></img>
     </div>
-  </div><!--end jumbotron-->
-  <div class="container">
+  </div><!--end container-->
+</div><!--end jumbotron-->
+
+<div class="container">
     <div class="row">
-      <div id="menu" class="col-sm-6"></div>
+      <div id="menu" class="col-sm-4">
         <h2>On the menu!</h2>
         <ul>
           {{#each burgers}}
@@ -19,14 +20,26 @@
 
                 <form action="burgers/updateOne/{{this.id}}?_method=PUT" method="POST">
                   <input type="hidden" name="devoured" value="false">
-                  <button type="submit">Devour it!!</button>
+                  <button type="submit" class="submit">Devour it!!</button>
                 </form>
               </li>
             {{/unless}}
           {{/each}}
         </ul>
+      </div>
 
-      <div id="eaten" class="col-sm-6">
+
+      <div id="add" class="col-sm-4">
+        <h2>Add a Burger</h2>
+          <form class="insert-form" action="burgers/insertOne" method="POST"></form>
+          <div class="add form-group">
+            <label for="burg">Burger Name:</label>
+              <input type="text" id="burg" name="burger_name">
+              <button type="submit" class="submit">Add Burger</button>
+          </div>
+      </div>
+
+      <div id="eaten" class="col-sm-4">
         <h2>Devoured burgers</h2>
         <ul>
           {{#each burgers}}
@@ -42,17 +55,9 @@
         </ul>
       </div>
     </div>
+ 
 
-    <div class="row">
-      <h2>Add a Burger</h2>
-        <form class="insert-form" action="burgers/insertOne" method="POST">
-      <div class="add form-group">
-        <label for="burg">Burger Name:</label>
-          <input type="text" id="burg" name="burger_name">
-          <button type="submit">Add Burger</button>
-      </div>
-    </div>
-  </div><!--end container-->
+</div><!--end container-->
   <footer class="footer">
       <small>&copy;Copyright Jennifer Pemberton 2016</small>
  </footer>
