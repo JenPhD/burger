@@ -1,0 +1,88 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--Google fonts-->
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Rock+Salt">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<!-- sticky footer -->
+ <link href="assets/css/sticky-footer.css" type="text/css" rel="stylesheet">
+
+<!-- Site specific overrides -->
+<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+<title>Eat Da Burger</title>   
+</head>
+<body>
+  <div class="jumbotron">
+    <div class="container">
+      <div id="header" class="col-sm-12">
+        <h1>Eat Da Burger!</h1>
+          <h3>(not to be confused with Burger Time)</h3>
+            <img src="assets/img/burgertime.jpg"></img>
+      </div>
+    </div>
+  </div><!--end jumbotron-->
+  <div class="container">
+    <div class="row">
+      <div id="menu" class="col-sm-6"></div>
+        <h2>On the menu!</h2>
+        <ul>
+          {{#each burgers}}
+            {{#unless this.devoured}}
+              <li>
+                {{this.burger_name}}
+
+                <form action="burgers/updateOne/{{this.id}}?_method=PUT" method="POST">
+                  <input type="hidden" name="devoured" value="false">
+                  <button type="submit">Devour it!!</button>
+                </form>
+              </li>
+            {{/unless}}
+          {{/each}}
+        </ul>
+
+      <div id="eaten" class="col-sm-6">
+        <h2>Devoured burgers</h2>
+        <ul>
+          {{#each burgers}}
+            {{#if this.devoured}}
+              <li>
+                {{this.name}}
+                <form action="burgers/updateOne/{{this.id}}?_method=PUT" method="POST">
+                  <input type="hidden" name="devoured" value="true">
+                </form>
+              </li>
+            {{/if}}
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+
+    <div class="row">
+      <h2>Add a Burger</h2>
+        <form class="insert-form" action="burgers/insertOne" method="POST">
+      <div class="add form-group">
+        <label for="burg">Burger Name:</label>
+          <input type="text" id="burg" name="burger_name">
+          <button type="submit">Add Burger</button>
+      </div>
+    </div>
+  </div><!--end container-->
+  <footer class="footer">
+      <small>&copy;Copyright Jennifer Pemberton 2016</small>
+ </footer>
+
+  <!-- jQuery 2.2.4 -->
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  
+
+</body>
+</html>
+
+

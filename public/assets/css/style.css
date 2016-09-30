@@ -1,0 +1,113 @@
+body {
+	background-color: #001;
+	background-image: url("../img/fire.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	font-family: "Helvetica", "arial," sans-serif;	
+}
+
+#header {
+	font-family: 'Rock Salt', cursive;
+	color: #ffff1a;
+	text-shadow: 2px 2px #ff0000;
+}
+
+.btn-default {
+	border-color: #ffff1a;
+	border-radius: 0;
+	background: #ff0000;
+	color: white;
+	margin: 10px;
+}
+
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open>.dropdown-toggle.btn-default {
+    color: #ff0000;
+    background: #ffff1a;
+    border-color: #white; 
+}
+
+#addBand {
+	border-color: #ffff1a;
+	border-radius: 0;
+	background: #ff0000;
+	color: white;
+	margin: 10px;
+}
+
+#addBand:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open>.dropdown-toggle.btn-default {
+    color: #ff0000;
+    background: #ffff1a;
+    border-color: #white; 
+}
+
+.container {
+	align-items: center;
+	display: flex;
+	text-align: center;
+	font-size: 20px;
+	font-color: #001;
+	max-width: 100%;
+}
+
+html {
+	background-image: url("../img/fire.png") no-repeat center center fixed;
+	-webkit-background size: cover;
+	-moz-background size: cover;
+	-o-background size: cover;
+	background-size: cover;
+}
+
+.jumbotron {
+	align-content: center;
+	background-color: black;
+	text-align: center;
+	
+}
+
+#gif1 {
+	width: 460px;
+}
+
+#gif2 {
+	width: 460px;
+}
+
+#gif3 {
+	width: 460px;
+
+}
+
+.bandimg {
+	margin: 10px;
+	height: 150px;
+	width: 250px;
+}
+
+#band-form {
+	color: #ffff1a;
+	text-shadow: 2px 2px #ff0000;	
+}
+
+#band-input {
+	color: #99004d;
+}
+
+p {
+	align-items: center;
+	background-color: #ffff80;
+	color: #99004d;
+	margin-left: 90px;
+	text-align: center;
+	width: 250px;
+}
+
+.footer {
+	background-color: #e63900;
+	border-top: solid;
+	border-color: #ffff1a;
+	color: white;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	text-align: center;
+}
