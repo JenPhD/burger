@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 
 var app = express();
+var PORT = process.env.PORT || 3000;
 
 //Serve static content for the app from the public directory
 app.use(express.static(process.cwd() + '/public'));
@@ -24,20 +25,8 @@ app.set('view engine', 'handlebars');
 var routes = require('./controllers/burgers_controller.js');
 app.use('/', routes);
 
-var mysql      = require('mysql');
-var connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : 'root',
-  database : 'burgers_db'
-});
-
-connection.connect(function(err) {
-  if (err) {
-    console.error('error connecting: ' + err.stack);
-    return;
-  };
-
-  console.log('connected as id ' + connection.threadId);
-
+// Starts the server to begin listening
+// =============================================================
+app.listen(PORT, function () {
+	console.log('App listening on PORT ' + PORT);
 });
